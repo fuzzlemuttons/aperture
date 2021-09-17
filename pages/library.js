@@ -1,30 +1,28 @@
-import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import { UserBar } from "../components/UserBar";
+import { useState } from "react";
+import useSWR from "swr";
+import { CircularProgress } from "@mui/material";
+import { Layout } from "../components/Layout";
+
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
+function Albums() {
+  const [albums, setAlbums] = useState([]);
+
+  const { data, error, isValidating } = useSWR("/api/photos/library", fetcher);
+
+  debugger;
+  return (
+    <div className={styles.grid}>
+      {isValidating ? <CircularProgress /> : null}
+    </div>
+  );
+}
 
 export default function Library() {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Library</title>
-        <meta name="description" content="Library" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <UserBar />
-        <h1 className={styles.title}>Library</h1>
-        <p className={styles.description}>description</p>
-
-        <div className={styles.grid}>
-          <a href="#" className={styles.card}>
-            <h2>Test</h2>
-            <p>....</p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>Footer</footer>
-    </div>
+    <Layout title="Library">
+      <Albums />
+    </Layout>
   );
 }

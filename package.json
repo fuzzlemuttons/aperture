@@ -9,12 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "@mui/material": "^5.0.0",
     "googlephotos": "^0.3.4",
     "next": "latest",
     "next-auth": "latest",
     "prettier": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "swr": "^1.0.1"
   },
   "devDependencies": {
     "eslint": "7.32.0",

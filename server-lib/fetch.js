@@ -4,6 +4,7 @@ export function googleFetch({ token, url, options = {} }) {
     headers: {
       authorization: `Bearer ${token}`,
     },
+    withCredentials: true,
     ...options,
   });
 }

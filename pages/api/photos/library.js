@@ -7,8 +7,6 @@ let accessToken;
 export default async (req, res) => {
   const token = await getToken({ req, secret });
   accessToken = token.accessToken;
-
   const data = await getAlbums({ token: accessToken, pageSize: 10 });
-
   res.status(200).send(data);
 };

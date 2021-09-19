@@ -6,7 +6,6 @@ export function UserBar() {
     return (
       <>
         Signed in as {session.user.email} <br />
-        <code>{JSON.stringify(session, null, 4)}</code>
         <button onClick={() => signOut()}>Sign out</button>
       </>
     );
